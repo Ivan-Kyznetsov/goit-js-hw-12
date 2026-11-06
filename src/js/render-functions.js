@@ -12,6 +12,9 @@ export const lightbox = new SimpleLightbox('.gallery a', {
 
 /* Функція створення галереї */
 export function createGallery(images, gallery) {
+  if (!gallery) {
+    return;
+  }
   const markup = images
     .map(
       image => `<li class="gallery-item">
@@ -45,6 +48,9 @@ export function clearGallery(gallery) {
 /* Функція появи loader */
 export function showLoader() {
   const loader = document.querySelector('.loader');
+  if (!loader) {
+    return;
+  }
   loader.classList.remove('is-hidden');
 }
 /* END */
@@ -52,18 +58,27 @@ export function showLoader() {
 /* Функція зникнення loader */
 export function hideLoader() {
   const loader = document.querySelector('.loader');
+  if (!loader) {
+    return;
+  }
   loader.classList.add('is-hidden');
 }
 /* END */
 
 /* Функції додавання/приховування кнопки "Load more" */
-const loadMoreBtn = document.querySelector('.btn-load-more');
-
 export function showLoadMoreButton() {
+  const loadMoreBtn = document.querySelector('.btn-load-more');
+  if (!loadMoreBtn) {
+    return;
+  }
   loadMoreBtn.classList.remove('is-hidden');
 }
 
 export function hideLoadMoreButton() {
+  const loadMoreBtn = document.querySelector('.btn-load-more');
+  if (!loadMoreBtn) {
+    return;
+  }
   loadMoreBtn.classList.add('is-hidden');
 }
 /* END */
@@ -71,6 +86,10 @@ export function hideLoadMoreButton() {
 /* Функція скролу зображень */
 export function scrollAfterClickLoadMore() {
   const galleryItem = document.querySelector('.gallery-item');
+  if (!galleryItem) {
+    return;
+  }
+
   const galleryItemHeight = galleryItem.getBoundingClientRect().height;
 
   window.scrollBy({

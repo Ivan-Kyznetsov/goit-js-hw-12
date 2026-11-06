@@ -82,17 +82,20 @@ form.addEventListener('submit', event => {
 /* END */
 
 /* Подія Click на кнопку */
-loadMoreBtn.addEventListener('click', async () => {
-  const previousPage = page;
-  page += 1;
+if (loadMoreBtn) {
+  loadMoreBtn.addEventListener('click', async () => {
+    const previousPage = page;
+    page += 1;
 
-  const isSuccess = await loadImages(currentSearchQuery, page);
+    const isSuccess = await loadImages(currentSearchQuery, page);
 
-  if (!isSuccess) {
-    page = previousPage;
-    showLoadMoreButton();
-    return;
-  }
-  scrollAfterClickLoadMore();
-});
+    if (!isSuccess) {
+      page = previousPage;
+      showLoadMoreButton();
+      return;
+    }
+    scrollAfterClickLoadMore();
+  });
+}
+
 /* END */
